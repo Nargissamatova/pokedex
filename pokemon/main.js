@@ -1,24 +1,26 @@
-const searchForm = document.querySelector("#searchForm");
-const searchInput = document.querySelector("#search");
-
 /*
+ASYNC VERSION
+let pokemons = []
 const fetchData = async () => {
   try {
-    const pokemonData = await fetch(
+    const response = await fetch(
       "https://pokeapi.co/api/v2/pokemon?limit=200&offset=0" //how many and where it starts from -> offset=0
     );
-    if (!pokemonData.ok) {
-      throw new Error(`Error status ${pokemonData.status}`);
+    if (!response.ok) {
+      throw new Error(`Error status ${response.status}`);
     }
-    const data = await pokemonData.json();
-    displayData(data);
+    const data = await response.json();
     console.log(data);
+    pokemons = data.results;
+    displayData(pokemons);
+
   } catch (error) {
     console.error(error);
   }
 };
 */
 
+// PROMISE VERSION
 let pokemons = [];
 const fetchData = () => {
   fetch("https://pokeapi.co/api/v2/pokemon?limit=500&offset=0")
@@ -42,16 +44,16 @@ const displayData = (data) => {
   });
 };
 
-const searchPokemons = (whatever) => {
+// Search function
+
+const searchPokemons = (wateeveeee) => {
   const filteredData = pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(whatever.toLowerCase())
+    pokemon.name.toLowerCase().includes(wateeveeee.toLowerCase())
   );
   displayData(filteredData);
 };
 
-// Search function
-const searchNames = (e) => {
-  console.log(e.target.value);
-};
-
-searchInput.addEventListener("input", searchNames); // or console.log(e.target.values)
+// searchInput.addEventListener("input", searchNames); or console.log(e.target.values) OR
+document.querySelector("#search").addEventListener("input", (e) => {
+  searchPokemons(e.target.value);
+});
