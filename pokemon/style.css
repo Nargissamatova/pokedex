@@ -1,0 +1,16 @@
+#container {
+    height: 200px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#container div {
+    background-color: rgb(142, 198, 229);
+    color: #333;
+    border-radius: 5px;
+    padding: 2em;
+    margin: 5px;
+}
