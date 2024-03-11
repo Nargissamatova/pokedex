@@ -14,3 +14,17 @@
     padding: 2em;
     margin: 5px;
 }
+
+#search {
+    height: 3em;
+    width: 20%;
+    padding: 1em;
+}
+
+button {
+    height: 3em;
+    background-color: orange;
+    border: none;
+    color: white;
+    font-weight: bold;
+}

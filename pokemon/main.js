@@ -1,6 +1,8 @@
 const fetchData = async () => {
   try {
-    const pokemonData = await fetch("https://pokeapi.co/api/v2/pokemon");
+    const pokemonData = await fetch(
+      "https://pokeapi.co/api/v2/pokemon?limit=200&offset=0" //how many and where it starts from -> offset=0
+    );
     if (!pokemonData.ok) {
       throw new Error(`Error status ${pokemonData.status}`);
     }
@@ -11,6 +13,14 @@ const fetchData = async () => {
     console.error(error);
   }
 };
+/*
+const pokemon = []
+const fetchData = () => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((response) => response.json())
+    .then((json) => displayData(json));
+}
+*/
 
 fetchData();
 
@@ -26,17 +36,12 @@ const displayData = (data) => {
   });
 };
 
-/*
-const displayData = (data) => {
-  const container = document.querySelector("#container");
-  data.forEach((post) => {
-    const postElement = document.createElement("div");
-    postElement.innerHTML = `
-    <h2>${post.title}</h2>
-    <p>${post.body}</p>
-    `;
-    container.appendChild(postElement);
-  });
+// Search function
+const searchForm = document.querySelector("#searchForm");
+const searchInput = document.querySelector("#search");
+
+const searchPokemon = () => {
+  console.log(searchInput.value);
 };
 
-*/
+searchInput.addEventListener("input", searchPokemon);
