@@ -2,10 +2,21 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
     background-color: darkseagreen;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: white;
 }
 
 .data {
@@ -19,6 +30,19 @@ body {
     box-shadow: 0 0 5px rgb(169, 169, 169);
     border-radius: 5px;
     text-align: center;
+}
+
+.data div:hover {
+    box-shadow: 0 0 10px rgb(99, 99, 99);
+}
+
+.data div:hover img {
+    filter: saturate(1);
+}
+
+.data div:hover h2 {
+    background-color: #3b4cca;
+    color: white;
 }
 
 #search {
@@ -35,7 +59,15 @@ body {
 }
 
 input {
-    padding: 1rem;
+    padding: 2rem;
     font-family: inherit;
     margin: 2rem auto;
+}
+
+button {
+    background-color: darkorange;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 0.5em;
 }
